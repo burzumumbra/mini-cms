@@ -5,14 +5,16 @@ import { Subtitle } from "@tremor/react";
 type InputProps = {
   placeholder: string;
   label?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
 };
 
-const InputComponent = ({placeholder, label}: InputProps) => {
+const InputComponent = ({placeholder, label, onChange, value}: InputProps) => {
 
   return (
     <Flex flexDirection="col" justifyContent="end" alignItems="start">
       <Subtitle className="text-xs">{label}</Subtitle> 
-      <TextInput placeholder={placeholder} />
+      <TextInput placeholder={placeholder} value={value} onChange={onChange} />
     </Flex>
   );
 
